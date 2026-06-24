@@ -48,6 +48,10 @@ Examples:
 * `BP_CameraSplinePath`
 * `BP_Module_NEW_Archivist_01`
 * `BP_Module_NEW_Archivist_02`
+* `BP_Module_NEW_Archivist_03`
+* `BP_Module_NEW_Archivist_04`
+* `BP_Module_NEW_Archivist_05`
+* `BP_Module_NEW_Archivist_06`
 
 ## Widget Blueprints
 

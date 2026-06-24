@@ -9,6 +9,8 @@ Purpose: AI-readable development roadmap for Osaider
 
 # 1. CURRENT DEVELOPMENT STAGE
 
+## 1.1 Current Stage
+
 Osaider is currently in:
 
 `Phase 1 Vertical Slice`
@@ -28,6 +30,31 @@ A complete Phase 1 cycle should include:
 7. Dice Check result determines faction direction.
 8. One new Archivist or Whalemen module is revealed.
 9. Player understands that their collected items affect progression.
+
+---
+
+## 1.2 Overall Phase Structure
+
+The full game is planned across five phases.
+
+Phase volumes are not equal — later phases may cover significantly more content than Phase 1.
+
+Current production status by phase:
+
+* Phase 1 — Active UE development.
+  All Archivist and Whalemen modules in this document belong to Phase 1.
+
+* Phase 2 through Phase 5 — Currently in Blender modeling stage.
+  These phases have not been imported into Unreal Engine.
+
+Planned import approach:
+
+Phase 2 through Phase 5 models will be built to completion in Blender first.
+All remaining phases will be imported into Unreal Engine together in a single pass
+after Blender work is finished.
+
+This means no UE development work is planned for Phase 2 through Phase 5
+until that import milestone is reached.
 
 ---
 
@@ -385,19 +412,29 @@ Archivist
 
 Known mechanics:
 
-* WheelA
-* WheelB
-* GearPivotA
-* GearPivotB
-* Slider linkage
-* DragPlaneA
-* DragPlaneB
+* WheelA / WheelB — dual rotational drag input
+* GearPivotA / GearPivotB — gear linkage
+* SliderMesh_A1 / A2 / B1 / B2 — slider linkage
+* DragPlaneA / DragPlaneB
+* SpawnCollision_WheelA / SpawnCollision_WheelB — hover detection zones
+* CameraSpline / PreviewCamera
+
+Implemented systems:
+
+* Interfaces: `BPI_ModuleInteractable` and `BPI_CameraModule` — both implemented
+* Solve detection: `SolveThreshold`, `bSolved`, `OnMechanismSolved` delegate
+* Item grant: `GrantedItem`, `bGrantItemOnWheelComplete`, `GrantItem_Event`, `ItemPopupRef`
+* Audio: `WheelStartVoiceover`, `WheelLoopSound`, `WheelAudioComponent`,
+  `PlayWheelVoiceover()`, `PlayWheelLoopSound()`
+* Hover UI: spawns `BP_3DUI` on cursor-over for WheelA and WheelB
+* Group management: `ModuleGroupTag`, `OwnedInteractionPoints`
 
 Needs polish:
 
-* Confirm final item reward
+* Verify solve detection and `OnMechanismSolved` trigger end-to-end in gameplay
+* Verify item grant flow (popup display, inventory update, drag pause on popup open)
+* Verify audio playback timing and volume balance
 * Add visual feedback for successful mechanism state
-* Add audio for wheel movement
 * Add module-specific documentation screenshots
 * Confirm integration with Dice Check module reveal
 
@@ -434,7 +471,153 @@ Needs polish:
 
 ---
 
-## 4.4 Whalemen Phase 1 Modules
+## 4.4 BP_Module_NEW_Archivist_03
+
+Status:
+
+`Implemented / In Progress`
+
+Faction:
+
+Archivist
+
+Known mechanics:
+
+* Oxygen Chamber top / bottom mesh
+* `ChamberPivot` — drag pivot for chamber lid
+* `ChamberClickSphere` — click collision for drag entry
+* `BPAC_ZoomDragItem` — reusable linear drag component
+* Chamber lid reset logic: `Chamber_Top ResetTargetLocation`, `bResettingChamber_Top`,
+  `Chamber_Top ResetSpeed`
+* `CameraSpline`
+
+Implemented systems:
+
+* Interfaces: `BPI_ModuleInteractable`, `BPI_CameraModule`, `BPI_SpawnReveal` — all implemented
+* Group management: `ModuleGroupTag`, `OwnedInteractionPoints`, `bAlreadyRevealed`
+* `RevealModuleGroup` and `HideModuleGroup` event handlers present
+
+Needs polish:
+
+* Confirm item reward and implement item grant flow
+* Add solve condition and completion event
+* Add visual and audio feedback for drag interaction
+* Test `RevealModuleGroup` / `HideModuleGroup` lifecycle with `BP_ModuleAssembler`
+* Add module-specific documentation screenshots
+
+---
+
+## 4.5 BP_Module_NEW_Archivist_04
+
+Status:
+
+`Implemented / In Progress`
+
+Faction:
+
+Archivist
+
+Known mechanics:
+
+* `DragItem_1` / `DragItem_2` — dual cylinder drag targets
+* `DragItemPivot` — drag pivot
+* `DragItemClickSphere` — click collision for drag entry
+* `BPAC_ZoomDragItem` — reusable linear drag component
+* `CameraSpline`
+
+Implemented systems:
+
+* Interfaces: `BPI_ModuleInteractable`, `BPI_CameraModule`, `BPI_SpawnReveal` — all implemented
+* Group management: `ModuleGroupTag`, `OwnedInteractionPoints`, `bAlreadyRevealed`
+* `RevealModuleGroup` and `HideModuleGroup` event handlers present
+
+Needs polish:
+
+* Confirm item reward and implement item grant flow
+* Add solve condition and completion event
+* Add visual and audio feedback for drag interaction
+* Test `RevealModuleGroup` / `HideModuleGroup` lifecycle with `BP_ModuleAssembler`
+* Add module-specific documentation screenshots
+
+---
+
+## 4.6 BP_Module_NEW_Archivist_05
+
+Status:
+
+`In Progress — Incomplete`
+
+Faction:
+
+Archivist
+
+Known mechanics:
+
+* `DragItem` — single drag target (mesh)
+* `DragItemPivot` — drag pivot
+* `DragItemClicBox` — BoxComponent click collision
+* `BPAC_ZoomDragItem` — reusable linear drag component
+* `CameraSpline`
+
+Implemented systems:
+
+* Interfaces: `BPI_ModuleInteractable`, `BPI_CameraModule` — implemented
+* Drag routing: `StartDrag` / `UpdateDrag` / `EndDrag` connected to `BPAC_ZoomDragItem`
+
+Missing — to be implemented:
+
+* Implement `BPI_SpawnReveal` interface
+* Add variables: `ModuleGroupTag`, `OwnedInteractionPoints`, `bAlreadyRevealed`
+* Implement `RevealModuleGroup` and `HideModuleGroup` event handlers
+
+Needs polish:
+
+* Confirm item reward and implement item grant flow
+* Add solve condition and completion event
+* Add visual and audio feedback for drag interaction
+* Add module-specific documentation screenshots
+
+---
+
+## 4.7 BP_Module_NEW_Archivist_06
+
+Status:
+
+`In Progress — Incomplete`
+
+Faction:
+
+Archivist
+
+Known mechanics:
+
+* Static mesh components: `Cube_2622`, `Cube_2627`, `Cylinder_3243`
+* `CameraSpline`
+
+Implemented systems:
+
+* Interfaces: `BPI_ModuleInteractable`, `BPI_CameraModule`, `BPI_SpawnReveal` — all implemented
+* Group management: `ModuleGroupTag`, `OwnedInteractionPoints`, `bAlreadyRevealed`
+* `RevealModuleGroup` and `HideModuleGroup` event handlers present
+
+Missing — to be implemented:
+
+* `BPI_ModuleInteractable` interface is declared but `StartDrag`, `UpdateDrag`, `EndDrag`
+  event nodes are absent from the event graph — interaction logic has not been added
+* No drag component, no clickable collision component
+
+Needs polish:
+
+* Design and implement the core interaction mechanic for this module
+* Add clickable collision component
+* Add drag or interaction component (e.g. `BPAC_ZoomDragItem`)
+* Confirm item reward and implement item grant flow
+* Add visual and audio feedback
+* Add module-specific documentation screenshots
+
+---
+
+## 4.8 Whalemen Phase 1 Modules
 
 Status:
 
@@ -759,6 +942,12 @@ Use `-2`, `+2`, `-3`, `+3` only for important items.
 ---
 
 # 9. FUTURE PHASES
+
+Note: This section currently documents Phase 1–4 design goals.
+A fifth phase is planned (see Section 1.2) but its design goals
+have not yet been written up.
+
+---
 
 ## Phase 1
 
