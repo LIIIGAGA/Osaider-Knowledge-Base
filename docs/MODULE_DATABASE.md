@@ -262,7 +262,7 @@ Update wheel, gear, and slider movement
 
 Uses:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 Functions:
 
@@ -302,7 +302,7 @@ When helping with this module:
 
 1. Keep wheel logic modular.
 2. Do not create a new base module class.
-3. Use existing `BPI_DragItem`.
+3. Use existing `BPI_ModuleInteractable`.
 4. Keep PlayerController responsible only for input routing.
 5. Store wheel-specific multipliers inside the module.
 6. Keep gear and slider transform updates inside `ApplyMechanismRotation`.
@@ -649,7 +649,7 @@ When creating a new module:
 5. Add camera spline if needed.
 6. Implement `BPI_CameraModule` if needed.
 7. Add draggable actors or components if needed.
-8. Use `BPI_DragItem` for drag interactions.
+8. Use `BPI_ModuleInteractable` for drag interactions.
 9. Add item reward if needed.
 10. Add faction and phase tag.
 11. Hide module at BeginPlay if it is not initially visible.

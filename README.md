@@ -48,7 +48,7 @@ Current goals:
 
 - Complete core gameplay loop
 - Complete Archivist modules
-- Complete Whalemen modules
+- Design Whalemen module mechanic (differentiated from Archivist, narrative-aligned)
 - Validate storylet structure
 - Validate Dice Check progression system
 

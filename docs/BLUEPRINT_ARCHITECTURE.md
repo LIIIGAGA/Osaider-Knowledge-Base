@@ -69,7 +69,7 @@ Prefix:
 
 Examples:
 
-* `BPI_DragItem`
+* `BPI_ModuleInteractable`
 * `BPI_CameraModule`
 
 ## Blueprint Actor Components
@@ -135,7 +135,7 @@ Main responsibilities:
 2. Detect hovered actors using `HoverTrace`.
 3. Send click interaction events.
 4. Detect drag targets.
-5. Route drag input through `BPI_DragItem`.
+5. Route drag input through `BPI_ModuleInteractable`.
 6. Move camera along module splines.
 7. Trigger smooth camera transitions.
 8. Rotate global palace structure with Space Bar.
@@ -266,7 +266,7 @@ Current actor receiving drag input.
 
 Should implement:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 ---
 
@@ -559,11 +559,11 @@ Use interfaces when:
 
 ---
 
-## 7.2 BPI_DragItem
+## 7.2 BPI_ModuleInteractable
 
 ### Purpose
 
-`BPI_DragItem` defines common drag behavior.
+`BPI_ModuleInteractable` defines common drag behavior.
 
 Used by:
 
@@ -783,7 +783,7 @@ If a module has drag objects:
 
 Implement or use actors/components that implement:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 ---
 

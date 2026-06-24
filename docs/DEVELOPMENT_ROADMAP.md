@@ -115,7 +115,7 @@ Status:
 
 Main Interface:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 Current features:
 
@@ -434,49 +434,30 @@ Needs polish:
 
 ---
 
-## 4.4 Whalemen Phase 1 Module
+## 4.4 Whalemen Phase 1 Modules
 
 Status:
 
-`High Priority / Not Yet Complete`
+`In Progress — Placed in Level, Mechanics Pending`
 
-Purpose:
+Modules:
 
-Phase 1 needs at least one Whalemen module.
+* `BP_Module_Whalemen_01`
+* `BP_Module_Whalemen_02`
+* `BP_Module_Whalemen_03`
 
-This is important because the Dice Check system needs both outcome branches to be visible.
+All three exist and are placed in the level,
+referenced in Prototype_03, Prototype_04, Prototype_06, and Prototype_06_2.
 
-Suggested module concept:
+Design question (unresolved):
 
-`BP_Module_NEW_Whalemen_01`
+How should Whalemen module interaction differ from Archivist modules?
+The distinction needs to reflect narrative alignment — Archivist and Whalemen
+represent opposing relationships to memory and official record.
+This design decision is pending and will affect mechanics, pacing, and item rewards.
 
-Tag:
-
-`Spawn_Whalemen_Phase1`
-
-Possible theme:
-
-Hidden memory chamber beneath the official structure.
-
-Possible mechanics:
-
-* Reveal hidden blue marks
-* Tune a signal
-* Pull rusted panel
-* Recover memory fragment
-* Follow audio cue
-
-Possible item reward:
-
-`Whalemen Recruitment Letter`
-
-or
-
-`Memory Fragment`
-
-Priority:
-
-Very high.
+Note: These modules use `BP_Module_Whalemen_XX` naming without the `_NEW_` prefix,
+unlike Archivist modules. This is a naming inconsistency but does not affect functionality.
 
 ---
 
@@ -506,22 +487,29 @@ Checklist:
 
 ---
 
-## Priority 2: Add Whalemen Content
+## Priority 2: Design and Complete Whalemen Content
 
-Goal:
+Status:
 
-Make the Whalemen route real, not just a technical placeholder.
+`In Progress — Modules placed in level, core design unresolved.`
 
-Tasks:
+Whalemen_01~03 have been created and placed in the level.
+However, the full gameplay experience for this route is not yet defined.
 
-* Design one Whalemen module.
-* Add blue visual identity.
-* Add Whalemen item reward.
-* Add module tag:
-  `Spawn_Whalemen_Phase1`
-* Add interaction logic.
-* Test reveal through Dice Check.
-* Add item to Item Database.
+Key open question:
+
+How should the Whalemen interaction mechanic differ from the Archivist route?
+This distinction must be grounded in narrative — the two factions represent
+opposing approaches to knowledge and memory.
+
+Remaining tasks:
+
+* Define Whalemen interaction mechanic (distinct from Archivist approach).
+* Align mechanic design with narrative identity of the Whalemen faction.
+* Add blue visual identity across Whalemen modules.
+* Define and add Whalemen item reward.
+* Add Whalemen item to Item Database.
+* Test Whalemen reveal through Dice Check.
 
 ---
 
@@ -622,7 +610,7 @@ Recommended next steps:
 ## 7.3 Drag Test
 
 * Does LMB start drag?
-* Does target implement `BPI_DragItem`?
+* Does target implement `BPI_ModuleInteractable`?
 * Does `StartDrag` fire?
 * Does `UpdateDrag` fire every Tick?
 * Does `EndDrag` fire on release?
@@ -868,8 +856,8 @@ Current recommended immediate tasks:
 4. Test submission panel with three items.
 5. Test Dice Check with debug values.
 6. Test Archivist module reveal.
-7. Create first Whalemen module.
-8. Test Whalemen module reveal.
+7. Define Whalemen interaction mechanic (distinct from Archivist).
+8. Test Whalemen module reveal through Dice Check.
 9. Add item popup polish.
 10. Add Dice Check visual feedback.
 11. Add Blueprint screenshots to repository.

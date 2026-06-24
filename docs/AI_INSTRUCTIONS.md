@@ -85,7 +85,7 @@ Use Blueprint Interfaces whenever possible.
 
 Current important interfaces:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 Functions:
 
@@ -293,7 +293,7 @@ Uses:
 
 Uses:
 
-* `BPI_DragItem`
+* `BPI_ModuleInteractable`
 * `StartDrag`
 * `UpdateDrag`
 * `EndDrag`
@@ -561,7 +561,7 @@ Common Osaider debugging areas:
 * Module already marked as spawned
 * Collision still disabled after reveal
 * CameraSplineRef not set
-* Drag target not implementing `BPI_DragItem`
+* Drag target not implementing `BPI_ModuleInteractable`
 * Dice Check triggered before all slots filled
 * SubmittedItems not cleared after check
 
@@ -627,7 +627,7 @@ Known mechanics:
 
 Uses:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 Important local function:
 

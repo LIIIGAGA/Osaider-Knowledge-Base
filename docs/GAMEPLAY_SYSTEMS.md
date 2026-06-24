@@ -361,7 +361,7 @@ The system is designed to be reusable across modules.
 
 Interface:
 
-`BPI_DragItem`
+`BPI_ModuleInteractable`
 
 Functions:
 
@@ -405,7 +405,7 @@ Player presses LMB on drag target
 
 ↓
 
-PlayerController checks whether target implements `BPI_DragItem`
+PlayerController checks whether target implements `BPI_ModuleInteractable`
 
 ↓
 
@@ -1032,7 +1032,7 @@ When adding new gameplay systems:
 
 1. Prefer Blueprint Interfaces over inheritance.
 2. Avoid reintroducing `BP_ModuleBase`.
-3. Reuse `BPI_DragItem` for drag-based mechanics.
+3. Reuse `BPI_ModuleInteractable` for drag-based mechanics.
 4. Reuse `BPAC_ZoomDragItem` for linear drag interactions.
 5. Use tags for module categorization.
 6. Keep each module self-contained.
