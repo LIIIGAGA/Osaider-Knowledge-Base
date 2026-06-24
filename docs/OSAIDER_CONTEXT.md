@@ -1,100 +1,303 @@
-# Osaider Knowledge Base
+# OSAIDER PROJECT CONTEXT
 
-This repository contains the AI-readable documentation for the Osaider project.
+Version: Phase 1
 
-Osaider is a narrative exploration game developed in Unreal Engine 5.6.
+Engine: Unreal Engine 5.6
 
-The project combines:
+Project Type:
 
-- Storylet-based narrative design
-- Modular level generation
-- Ideology-driven progression
-- Reusable Blueprint systems
-- Environmental storytelling
+Narrative Exploration Game
 
----
+Primary Goal:
 
-## Repository Structure
-
-docs/
-├── OSAIDER_CONTEXT.md
-├── WORLD_BUILDING.md
-├── GAMEPLAY_SYSTEMS.md
-├── BLUEPRINT_ARCHITECTURE.md
-├── MODULE_DATABASE.md
-├── ITEM_DATABASE.md
-├── DEVELOPMENT_ROADMAP.md
-└── AI_INSTRUCTIONS.md
+Create a modular storylet-based narrative game where player ideology influences procedural narrative progression.
 
 ---
 
-## Development Philosophy
+# HIGH LEVEL CONCEPT
 
-The project prioritizes:
+Osaider is a floating palace suspended above an endless ocean.
 
-- Reusable systems
-- Blueprint-first development
-- Modular narrative design
-- Interface-driven architecture
-- Rapid iteration
+The palace functions simultaneously as:
+
+- A nation
+- A government
+- A weapons factory
+- A historical archive
+
+The society believes it is engaged in a perpetual war against an external enemy known as Osaider.
+
+However, evidence gradually suggests that:
+
+- The enemy may not exist.
+- The war may be manufactured.
+- History itself may have been rewritten.
+
+The player explores fragments of this world through a sequence of modular narrative spaces.
 
 ---
 
-## Current Development Stage
+# CORE THEMES
+
+## Constructed History
+
+History is not discovered.
+
+History is produced.
+
+The Archivists continuously rewrite reality through documentation.
+
+---
+
+## Memory
+
+Memory exists independently from official records.
+
+The Whalemen attempt to preserve memories that have been erased from history.
+
+---
+
+## Bureaucracy
+
+The palace survives through endless administrative procedures.
+
+Documents become more important than reality.
+
+---
+
+## Endless Production
+
+Weapons are manufactured every day.
+
+Weapons are destroyed every night.
+
+The system exists only to sustain itself.
+
+---
+
+## Ideology
+
+Player choices do not immediately branch the narrative.
+
+Instead they gradually influence ideological alignment.
+
+---
+
+# FACTIONS
+
+## Archivist
+
+Color:
+
+Red
+
+Role:
+
+Official authority.
+
+Responsibilities:
+
+- Record history
+- Edit history
+- Manufacture historical narratives
+- Maintain social order
+
+Core Belief:
+
+History is constructed.
+
+Truth exists only through documentation.
+
+Narrative Function:
+
+Represents institutional power.
+
+---
+
+## Whalemen
+
+Color:
+
+Blue
+
+Role:
+
+Underground resistance.
+
+Responsibilities:
+
+- Preserve memories
+- Share hidden knowledge
+- Challenge official narratives
+
+Core Belief:
+
+Memory survives even when history is erased.
+
+Narrative Function:
+
+Represents counter-history.
+
+---
+
+# PLAYER ROLE
+
+The player begins as an ordinary citizen.
+
+The player is not explicitly aligned with any faction.
+
+Alignment emerges through:
+
+- Exploration
+- Collected items
+- Dice Check outcomes
+- Narrative choices
+
+The player gradually develops ideological tendencies.
+
+---
+
+# GAME STRUCTURE
+
+The game uses a Storylet Architecture.
+
+A storylet is:
+
+A self-contained narrative module that can be connected to multiple other modules.
+
+Each module contains:
+
+- Environment
+- Interactions
+- Items
+- Narrative fragments
+
+Modules can appear in different orders.
+
+This allows narrative variation while preserving authored content.
+
+---
+
+# CORE GAMEPLAY LOOP
+
+1. Explore current module
+
+2. Interact with mechanisms
+
+3. Discover narrative information
+
+4. Obtain item rewards
+
+5. Store items in inventory
+
+6. Submit three items
+
+7. Perform Dice Check
+
+8. Generate next module
+
+9. Repeat
+
+---
+
+# IDEOLOGY SYSTEM
+
+Every collectible item contains:
+
+- Narrative meaning
+- Ideology value
+
+Example:
+
+Archivist items:
+
+Positive value
+
+Whalemen items:
+
+Negative value
+
+Current implementation may change during balancing.
+
+---
+
+# DICE CHECK SYSTEM
+
+Formula:
+
+Final Score = 2D6 + Ideology Value Sum
+
+Threshold:
+
+7
+
+Results:
+
+Score >= 7
+
+Archivist Route
+
+Score < 7
+
+Whalemen Route
+
+The Dice Check determines which module pool becomes available.
+
+---
+
+# MODULE GENERATION PHILOSOPHY
+
+The game does not spawn modules dynamically.
+
+Instead:
+
+All future modules already exist in the level.
+
+At BeginPlay:
+
+- Hidden
+- Collision disabled
+
+When selected:
+
+- Unhidden
+- Collision enabled
+
+Advantages:
+
+- Better performance
+- Easier debugging
+- More predictable behaviour
+
+---
+
+# CURRENT PHASE
 
 Phase 1 Vertical Slice
 
-Current goals:
+Target:
 
-- Complete core gameplay loop
-- Complete Archivist modules
-- Complete Whalemen modules
-- Validate storylet structure
-- Validate Dice Check progression system
+One complete gameplay cycle.
 
----
+Current Systems:
 
-## Engine
+✓ Camera System
 
-Unreal Engine 5.6
+✓ Interaction System
 
----
+✓ Drag Mechanism System
 
-## Main Gameplay Loop
+✓ Inventory System
 
-Explore
+✓ Submission System
 
-↓
+✓ Dice Check System
 
-Interact
+✓ Module Spawn System
 
-↓
+In Progress:
 
-Collect Items
-
-↓
-
-Submit Items
-
-↓
-
-Dice Check
-
-↓
-
-Generate Next Module
-
-↓
-
-Repeat
-
----
-
-## Documentation Entry Point
-
-Start reading:
-
-1. OSAIDER_CONTEXT.md
-2. WORLD_BUILDING.md
-3. GAMEPLAY_SYSTEMS.md
-4. BLUEPRINT_ARCHITECTURE.md
+- Additional Archivist Modules
+- Whalemen Content
+- Environmental Storytelling
+- Audio Polish
