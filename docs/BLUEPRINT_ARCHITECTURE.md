@@ -642,6 +642,87 @@ Used by:
 
 ---
 
+## 7.4 BPI_SpawnReveal
+
+### Purpose
+
+`BPI_SpawnReveal` defines the lifecycle interface for modules that can be
+hidden and revealed at runtime.
+
+Used by:
+
+* `BP_Module_NEW_Archivist_03`
+* `BP_Module_NEW_Archivist_04`
+* `BP_Module_NEW_Archivist_06`
+
+---
+
+### Functions
+
+`RevealModuleGroup`
+
+Called to make the module and its owned interaction points visible and active.
+
+Observed behavior (source: detailed developer comment node in
+`BP_Module_NEW_Archivist_03` and `BP_Module_NEW_Archivist_06` event graphs;
+node co-location confirmed, exact pin-level wiring not verified):
+
+* Unhide the module Actor.
+* Enable Actor collision.
+* Enable Actor Tick.
+* Iterate `OwnedInteractionPoints` and unhide, enable collision, enable Tick for each.
+* Set `OwningModuleRef` on each interaction point to self.
+
+---
+
+`HideModuleGroup`
+
+Called to hide the module and its owned interaction points.
+
+Observed behavior (source: action nodes co-located under a section-label comment
+`"HideModuleGroup"` in `BP_Module_NEW_Archivist_03` event graph; unlike
+`RevealModuleGroup`, no step-by-step developer comment exists for this function —
+behavior inferred from node list and symmetry with `RevealModuleGroup`; exact
+pin-level wiring not verified. Note: `BP_Module_NEW_Archivist_06` routes this
+event through an intermediate function call rather than directly to action nodes):
+
+* Hide the module Actor.
+* Disable Actor collision.
+* Disable Actor Tick.
+* Iterate `OwnedInteractionPoints` and hide, disable collision, disable Tick for each.
+
+---
+
+`SetAlreadyRevealed`
+
+Called to record that this module has already been revealed.
+
+Expected behavior:
+
+* Set `bAlreadyRevealed` to true on the implementing Actor.
+
+---
+
+`GetAlreadyRevealed`
+
+Returns whether this module has already been revealed.
+
+Confirmed: interface defines this function with a return value (2 nodes in the
+interface graph indicate an input pin and a return pin).
+
+Current implementation status: none of the three known implementing Blueprints
+(`BP_Module_NEW_Archivist_03`, `_04`, `_06`) call this function in their event graphs.
+
+Note: The caller of this function has not been verified. Any assumption about
+which Blueprint calls it is unverified and is not documented here.
+
+---
+
+Note: `BP_Module_NEW_Archivist_05` does not yet implement this interface.
+See Section 4.6 of DEVELOPMENT_ROADMAP.md for details.
+
+---
+
 # 8. REUSABLE COMPONENTS
 
 ## 8.1 BPAC_ZoomDragItem
