@@ -275,6 +275,8 @@ Advantages:
 
 Phase 1 Vertical Slice
 
+Active Level: Prototype_06_2 (EditorStartupMap + GameDefaultMap)
+
 Target:
 
 One complete gameplay cycle.
