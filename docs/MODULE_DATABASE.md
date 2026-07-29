@@ -439,6 +439,48 @@ When helping with this module:
 
 ---
 
+# 5.3 Phase 2–5 Modules (Technical Index — Narrative Content Pending)
+
+Verified 2026-07-29 by reading live Blueprint content through UnrealMCP (`read_blueprint_content`) against the actors currently placed in the main level. This section records confirmed technical structure only. Narrative Function, Gameplay Function, and Item Reward fields are intentionally left as `To Confirm` — they have not been authored yet and should not be assumed from naming alone.
+
+## Architecture notes discovered during this pass
+
+* Blueprint support folders were reorganized (not deleted, despite showing as delete+add in `git status` for binary renames):
+  `Content/TopDown/Blueprints/Interface/` → split into `Content/TopDown/Blueprints/BPI/` (interfaces) and `Content/TopDown/Blueprints/Enumeration/` (enums). `BP_CoreDevice` moved into `Content/TopDown/Blueprints/CoreBP/`. Actor Components consolidated into `Content/TopDown/Blueprints/BPAC/`.
+* A new interface exists: `BPI_WorldItemReceiver` (alongside `BPI_ModuleInteractable` and `BPI_CameraModule`). Confirmed in use on `BP_TBlock_5_1`. Purpose: `To Confirm`.
+* New enums present: `E_GrantAtExtreme`, `E_InventoryInteractionMode`, `E_SmeltingState`, `E_WheelDrivenMode`. Purpose of each: `To Confirm`.
+* The reusable Actor Component library (pattern established by `BPAC_ZoomDragItem`, see Rule/Component list in AI_INSTRUCTIONS.md) has expanded to include: `BPAC_ClickRotate`, `BPAC_ClickGrow`, `BPAC_ClickShake`, `BPAC_AnimationPlay`, `BPAC_TimeLimitRestart`, `BPAC_WheelRotate`, `BPAC_Controller`. These are used throughout the modules below in place of one-off per-module drag logic.
+* All modules listed below implement the same three interfaces: `BPI_CameraModule_C`, `BPI_ModuleInteractable_C`, `BPI_SpawnReveal_C` (confirming Module Reveal / hide-disable-collision pattern from Section 2 is still the standard, just relocated).
+
+## Module technical index
+
+| Blueprint | Likely Faction (from naming) | Phase | Key Components | Notes |
+|---|---|---|---|---|
+| `BP_Module_NEW_Archivist_03` | Archivist | Phase 1 | `BPAC_ZoomDragItem`, `ChamberPivot`, `ChamberClickSphere` | Oxygen-chamber style lid drag; has `bResttingChamber_Top` reset-state variables |
+| `BP_Module_NEW_Archivist_04` | Archivist | Phase 1 | `BPAC_ClickRotate`, `RotateComponentPivot` | Single click-to-rotate mechanism |
+| `BP_Module_NEW_Archivist_05` | Archivist | Phase 1 | `BPAC_ClickShake`, `BPAC_ClickGrow01-10` (10x), `BPAC_ZoomDragItem`, `Facade01-10` | Large facade assembly with 10 independently-growable facade pieces |
+| `BP_Module_NEW_Archivist_06` | Archivist | Phase 1 | `CameraSpline` only, no BPAC component yet | Simplest module in the set; interaction likely handled elsewhere or not yet wired |
+| `BP_Module_Whalemen_01` | Whalemen | Phase 1 | 5x `RectLight`, multiple static meshes | Lighting-heavy scene, no BPAC drag component detected yet |
+| `BP_Module_Whalemen_02` | Whalemen | Phase 1 | `BPAC_ClickRotate`, `BPAC_ClickShake`, mixed lights (`RectLight`, `SpotLight` x3) | Dining-area themed (`DinningAreaClickBox`) |
+| `BP_Module_Whalemen_03` | Whalemen | Phase 1 | `BPAC_ZoomDragItem`, `BPAC_ClickRotate` | Combines drag + rotate interactions |
+| `BP_ABlock_2_1` … `BP_ABlock_2_6` | Archivist | Phase 2 | `BPAC_Controller`, `BPAC_ClickRotate`, `ControllerSlot` | Controller/slot puzzle pattern (sampled from `BP_ABlock_2_1`) |
+| `BP_ABlock_3_1` … `BP_ABlock_3_3` | Archivist | Phase 3 | `To Confirm` (not individually sampled) | — |
+| `BP_TBlock_5_1` … `BP_TBlock_5_4` | Technical/Energy (`AW_05EnergyCenter`) | Phase 5 | `SkeletalMeshComponent` (`RotateStructure_SK`), 3x `NiagaraComponent`, `BPAC_ClickShake`, `BPAC_AnimationPlay`, implements `BPI_WorldItemReceiver` | Only module sampled with Niagara VFX + skeletal animation; contains the 81 MB `SK_ABlock_3_1_RingLoop` animation flagged by GitHub's large-file warning on push |
+| `BP_WBlock_2_1` … `BP_WBlock_2_5` | Whalemen | Phase 2 | `BPAC_ZoomDragItem` (sampled from `BP_WBlock_2_1`) | — |
+| `BP_WBlock_3_1` … `BP_WBlock_3_4` | Whalemen | Phase 3 | `To Confirm` (not individually sampled) | — |
+| `BP_Phase4` (x2 instances in level) | Archivist + Whalemen (convergence) | Phase 4 | 4x `Archivist_BaseNN` + 5x `Whalemen_BaseNN`, `BPAC_ClickShake`, 9x `BPAC_ClickGrow` | Only module combining both faction base sets in one Blueprint — likely a Phase 4 convergence/gate scene |
+
+## What still needs to be authored
+
+For every module above, before it can be considered documentation-complete per Section 4's template:
+
+* Narrative Function
+* Gameplay Function (beyond the mechanical component list)
+* Item Reward (cross-reference against the new icon batch in `ITEM_DATABASE.md` Section 5.14)
+* Ideology value / faction implication confirmation (naming convention is a strong hint, not a confirmed design decision)
+
+---
+
 # 6. PLANNED MODULE CATEGORIES
 
 ---

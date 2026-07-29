@@ -961,6 +961,65 @@ It may eventually function as a route-breaking object.
 
 ---
 
+# 5.14 Newly Added Item Icons (Pending Narrative Data)
+
+Added 2026-07-29 alongside the Phase 2–5 asset batch. Only the icon (`.uasset`) exists for each of these so far — no confirmed description, source module, faction implication, or ideology value. Do not treat the grouping below as a design decision; it is only a naming-based guess to help a human designer triage. Every field for these items should be treated as `To Confirm` until authored.
+
+## Likely Archivist-leaning (bureaucratic / industrial / official, by name)
+
+* `A Box of Bullets`
+* `A Metal Pocket Watch`
+* `Aspirin`
+* `Broken Sword`
+* `Flame Badge`
+* `Fuel Supply`
+* `Gas Tank`
+* `Graffiti-Covered Textbook`
+* `Metal Components`
+* `Production Order`
+* `Quality Inspection Report`
+* `Rifle`
+* `Safety Helmet`
+* `Shift Schedule`
+* `Timetable`
+* `709 Employee Photo` (likely companion asset to existing `Employee ID Card No.709`, see Section 5.1 — `To Confirm` whether it is the same item's alternate icon or a distinct new item)
+
+## Likely Whalemen-leaning (resistance / ocean / improvised, by name)
+
+* `A Dumped Barrel of Oil`
+* `A Shard of Armor`
+* `Audio Recorder`
+* `Bottle of Vodka`
+* `Eavesdropping Device`
+* `Film Reel`
+* `Hero Statue` (source file: `Hero_StatuI_Icon`, likely a typo for "Statue")
+* `Navigation Chart`
+* `Seashell`
+* `Signal Interference Device`
+* `Submarine Model`
+* `Telescope`
+* `Whale-Emblem Key`
+* `Whalemen Flag`
+
+## Ambiguous / unclear (by name)
+
+* `Handwritten Notebook`
+* `Hygrometer`
+* `Marker`
+* `Miner Glasses`
+* `Painter's Tools`
+* `Spark of the Eternal Flame`
+* `Tarpaulin`
+* `Teddybear`
+* `Theatre Voucher`
+* `Unknown Material` (source file: `Unknown_Matarial_Icon`, likely a typo for "Material")
+
+## Design Notes
+
+This is a large batch (41 new icons) relative to the 13 items already documented in Sections 5.1–5.13. Before these are wired into the Inventory/Submission system, each needs: `ItemID`, `SourceModule`, `FactionImplication`, `IdeologyValue`, player-facing `Description`, and hidden narrative meaning, per the template in Section 2 and the AI proposal format in `AI_INSTRUCTIONS.md` Section 8.
+
+---
+
 # 6. ROUTE-BREAKING ITEMS
 
 Some items may become more important than ordinary Dice Check modifiers.
