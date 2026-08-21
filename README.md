@@ -99,3 +99,9 @@ Start reading:
 2. WORLD_BUILDING.md
 3. GAMEPLAY_SYSTEMS.md
 4. BLUEPRINT_ARCHITECTURE.md
+
+Implementation guide entry points:
+
+- `docs/IntroGuides/00_施工顺序与总索引.md`
+- `docs/SubmissionGuides/00_施工顺序与总索引.md`
+- `docs/CycleReflectionGuides/00_施工顺序与总索引.md`

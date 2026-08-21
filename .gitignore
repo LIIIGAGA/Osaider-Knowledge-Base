@@ -1,0 +1,8 @@
+# Local agent settings
+.claude/settings.local.json
+.codex-tmp/
+.firecrawl/
+
+# Generated video review files and local tool runtime
+.video_review/
+.video_tools/

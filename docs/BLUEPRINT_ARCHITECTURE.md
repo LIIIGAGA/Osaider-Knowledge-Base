@@ -300,6 +300,23 @@ Input:
 
 ---
 
+### Custom Cursor Variable
+
+`CursorWidgetRef`
+
+Type:
+
+`WBP_MouseCursor` Object Reference.
+
+This is the runtime custom-cursor widget instance owned by
+`BP_NoCharacterPlayerController`. Reuse this reference when changing cursor
+state or input mode. Do not create a second cursor widget for gameplay UI.
+
+Note: `BP_IntroPlayerController` has its own separate cursor reference and
+lifecycle; do not rename or merge the Intro variable into this Gameplay one.
+
+---
+
 # 4. BP_INTERACTIONPOINT
 
 ## 4.1 Purpose

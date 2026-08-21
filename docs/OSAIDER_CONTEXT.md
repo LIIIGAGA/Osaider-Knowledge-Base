@@ -16,7 +16,13 @@ Create a modular storylet-based narrative game where player ideology influences 
 
 # HIGH LEVEL CONCEPT
 
-Osaider is a floating palace suspended above an endless ocean.
+The game takes place in a nameless floating palace suspended above an endless ocean.
+
+The palace has no public name because its inhabitants do not experience it as one
+place among others. It is simply the given structure of reality: the world in which
+life, work, history, and social order already take place. Its lack of a name helps
+make the palace and its institutions feel natural, inevitable, and difficult to
+perceive as constructed.
 
 The palace functions simultaneously as:
 
@@ -26,6 +32,12 @@ The palace functions simultaneously as:
 - A historical archive
 
 The society believes it is engaged in a perpetual war against an external enemy known as Osaider.
+
+Osaider names the supposed enemy, not the palace. Unlike the palace, Osaider does
+not need a material existence. The enemy must be named precisely because it is a
+concept that citizens must be able to discuss, fear, and organize themselves
+against. Public attention is directed toward this named external threat and away
+from the nameless institutional order that structures everyday life.
 
 However, evidence gradually suggests that:
 
@@ -275,7 +287,7 @@ Advantages:
 
 Phase 1 Vertical Slice
 
-Active Level: Prototype_06_2 (EditorStartupMap + GameDefaultMap)
+Active Level: Prototype_07 (EditorStartupMap + GameDefaultMap)
 
 Target:
 

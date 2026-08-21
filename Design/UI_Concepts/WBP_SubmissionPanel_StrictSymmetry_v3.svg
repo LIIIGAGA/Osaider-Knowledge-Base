@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="centerFill" cx="50%" cy="45%" r="65%">
+      <stop offset="0" stop-color="#661713"/>
+      <stop offset="0.72" stop-color="#3b0c0c"/>
+      <stop offset="1" stop-color="#160506"/>
+    </radialGradient>
+    <filter id="grain" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="3" seed="23"/>
+      <feColorMatrix values="1 0 0 0 0.42  0 0 0 0 0.01  0 0 0 0 0.01  0 0 0 .22 0"/>
+      <feBlend mode="screen" in2="SourceGraphic"/>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- One master slot at radius 330 below the exact center. The other two are rotations of this group. -->
+    <g id="slot">
+      <circle cx="960" cy="870" r="148" fill="#030405" stroke="#2a090a" stroke-width="2"/>
+      <circle cx="958" cy="870" r="135" fill="none" stroke="#00d8e3" stroke-width="3" opacity=".95"/>
+      <circle cx="961" cy="870" r="135" fill="none" stroke="#f01818" stroke-width="4"/>
+      <circle cx="960" cy="870" r="151" fill="none" stroke="#6d1816" stroke-width="2"/>
+      <circle cx="960" cy="870" r="158" fill="none" stroke="#b92a22" stroke-width="11" stroke-dasharray="2 11.788" opacity=".72"/>
+      <circle cx="960" cy="870" r="169" fill="none" stroke="#391011" stroke-width="2"/>
+      <circle cx="960" cy="870" r="173" fill="none" stroke="#7d1d19" stroke-width="1" stroke-dasharray="19 9" opacity=".65"/>
+      <path d="M960 694 l-8 15 h16z M960 1046 l-8-15 h16z M784 870 l15-8 v16z M1136 870 l-15-8 v16z" fill="#f3e7dc" opacity=".85"/>
+      <g fill="none" stroke="#827c78" stroke-width="1.5" opacity=".72">
+        <circle cx="960" cy="870" r="17"/>
+        <path d="M960 842 L969 861 L988 870 L969 879 L960 898 L951 879 L932 870 L951 861 Z"/>
+        <path d="M960 850 V890 M940 870 H980"/>
+      </g>
+    </g>
+
+    <!-- One radial connector, rotated with the same exact center. -->
+    <g id="connector">
+      <path d="M960 638 V694" fill="none" stroke="#dc1717" stroke-width="2"/>
+      <path d="M958 638 V694" fill="none" stroke="#00bfc9" stroke-width="1" opacity=".68"/>
+      <rect x="951" y="645" width="18" height="18" transform="rotate(45 960 654)" fill="#070708" stroke="#e01b19" stroke-width="2"/>
+      <circle cx="960" cy="654" r="3.5" fill="#f3eee8"/>
+    </g>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#020304"/>
+
+  <!-- Centered atmosphere only; no corner frame and no text. -->
+  <circle cx="960" cy="540" r="492" fill="#270506" opacity=".22" filter="url(#grain)"/>
+
+  <!-- Every global construction shares the exact center C=(960,540). -->
+  <g fill="none">
+    <circle cx="960" cy="540" r="500" stroke="#43100f" stroke-width="2"/>
+    <circle cx="960" cy="540" r="486" stroke="#7c1b18" stroke-width="2"/>
+    <circle cx="960" cy="540" r="474" stroke="#a0221e" stroke-width="10" stroke-dasharray="2 14.545" opacity=".55"/>
+    <circle cx="960" cy="540" r="405" stroke="#5c1515" stroke-width="1.5" stroke-dasharray="8 10" opacity=".7"/>
+    <circle cx="960" cy="540" r="330" stroke="#401010" stroke-width="1.5" stroke-dasharray="5 9"/>
+    <polygon points="960,870 674.2116168,375 1245.7883832,375" stroke="#ca1717" stroke-width="2"/>
+    <polygon points="960,210 1245.7883832,705 674.2116168,705" stroke="#641311" stroke-width="1.2" opacity=".7"/>
+  </g>
+
+  <!-- Strictly symmetric radial connectors: same object rotated 0/120/240 degrees. -->
+  <use href="#connector"/>
+  <use href="#connector" transform="rotate(120 960 540)"/>
+  <use href="#connector" transform="rotate(240 960 540)"/>
+
+  <!-- Strictly symmetric slots: same master object rotated 0/120/240 degrees. -->
+  <use href="#slot"/>
+  <use href="#slot" transform="rotate(120 960 540)"/>
+  <use href="#slot" transform="rotate(240 960 540)"/>
+
+  <!-- Exact central button, unlabeled. -->
+  <g>
+    <circle cx="960" cy="540" r="102" fill="#1b0506" stroke="#871915" stroke-width="2"/>
+    <circle cx="958" cy="540" r="88" fill="none" stroke="#00c9d4" stroke-width="2" opacity=".72"/>
+    <circle cx="961" cy="540" r="88" fill="url(#centerFill)" stroke="#f1e8df" stroke-width="4"/>
+    <circle cx="960" cy="540" r="105" fill="none" stroke="#f01818" stroke-width="10" stroke-dasharray="2 8.996" opacity=".85"/>
+    <circle cx="960" cy="540" r="92" fill="none" stroke="#63100f" stroke-width="2"/>
+    <circle cx="960" cy="540" r="68" fill="#210708" opacity=".25" filter="url(#softGlow)"/>
+  </g>
+</svg>

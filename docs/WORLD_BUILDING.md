@@ -10,7 +10,13 @@ Engine: Unreal Engine 5.6
 
 # 1. WORLD PREMISE
 
-Osaider is a floating palace above the ocean.
+The world is organized around a nameless floating palace above the ocean.
+
+The palace is deliberately unnamed. Its inhabitants do not treat it as an object
+that requires identification or explanation; it is the reality they inherit and
+within which they live. They rarely ask who named it, who built it, or what else it
+could be called. This absence of a name naturalizes the palace and the institutional
+order embedded within it.
 
 It is not only a palace.
 
@@ -23,6 +29,15 @@ It is also:
 * A machine for producing ideology
 
 The people living inside the palace believe that they are protecting their homeland from an external enemy called Osaider.
+
+Osaider is the name of the supposed enemy only. The contrast is structural:
+
+* The palace is materially present but does not need a name.
+* Osaider may have no material existence but must have a name.
+
+A named enemy can be repeated in documents, speeches, warnings, and everyday
+conversation. It gives citizens a visible object for fear and attention, drawing
+scrutiny away from the nameless systems that organize their lives.
 
 However, as the player explores the palace, they gradually discover that the war may be a constructed narrative.
 
@@ -131,7 +146,9 @@ However, hidden evidence suggests:
 * The enemy may be fictional.
 * The war may have ended long ago.
 * The war may never have happened.
-* Osaider may be a name used to justify endless control.
+* Osaider may be a named concept used to justify endless control.
+* Naming the external threat may prevent citizens from recognizing the palace's
+  internal order as a constructed system.
 
 The player should never receive a single final truth too early.
 
